@@ -1,0 +1,171 @@
+
+body{
+  background-color: $grey_light;
+}
+.container{
+  height:auto;
+  width: 50%;
+  @include centerer(true, true);
+}
+// dynamic input component
+// change colors and
+.input-jump-up{
+  font-family: $fontFace;
+  position: relative;
+  margin: $gutter 0;
+
+  //input and validation styles
+  input{
+    background-color: $t;
+    font-size: 18px;
+    // font-size: $lbl-input;
+    padding:$gutter-quarter;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom:1px solid $grey_dark;
+    color:$grey_dark;
+    &:focus{
+      outline: none;
+    }
+    //when the input it valid
+    &:valid{
+      border-color:$assent_compliment;
+    }
+    //when the input is invalid
+    &:invalid{
+      border-color:$red;
+    }
+  }
+// label & input states
+  label{
+    color:$grey_dark;
+    font-size: 18px;
+    // font-size: $lbl-input;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top:10px;
+    @include transition(.4s);
+  }
+  input:focus ~ label, input:valid ~ label{
+    top:-20px;
+    font-size:14px;
+    color:$primary_compliment;
+  }
+  input:focus:invalid ~ label{
+    top:-20px;
+    font-size:14px;
+    color:$red;
+  }
+  input:focus:invalid ~ .bar:before, input:focus:invalid ~ .bar:after{
+    background-color:$red !important;
+    @include transition(.2s);
+  }
+  // underline bar transition
+  .bar{
+    position: relative;
+    display: block;
+    width: calc(100% + #{$gutter-half});
+    &:before, &:after{
+      content:'';
+      height:2px;
+      width:0;
+      bottom:1px;
+      position:absolute;
+      background-color:$primary_compliment;
+      @include transition(.2s);
+    }
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%;
+  }
+  input:focus ~ .bar:before, input:focus ~ .bar:after, input:valid ~ .bar:before, input:valid ~ .bar:after {
+    width:50%;
+  }
+}
+
+
+
+
+
+
+.input-slide-down{
+  font-family: $fontFace;
+  position: relative;
+  margin: $gutter 0;
+  input{
+    font-size: 18px;
+    // font-size: $lbl-input;
+    padding:$gutter-half;
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: $t;
+    color: $grey_dark;
+    border:2px solid $grey_dark;
+    @include transition(.4s);
+    &:focus{
+      border-color: $primary_compliment;
+      outline: none;
+    }
+    &:valid{
+      border-color:$assent_compliment;
+    }
+    &:focus:invalid{
+      border-color:$red;
+    }
+  }
+  input:focus ~ label, input:valid ~ label{
+    top:-20px;
+    left: 0;
+    font-size:10px;
+    font-weight: 500;
+    color:$primary_compliment;
+    text-transform: uppercase;
+  }
+  input:focus:invalid ~ label{
+    top:-20px;
+    left: 0;
+    font-size:10px;
+    font-weight: 500;
+    color:$red;
+    text-transform: uppercase;
+  }
+  .bar{
+    position: relative;
+    display: block;
+    width: calc(100% + #{$gutter-half});
+    &:before, &:after{
+      content:'';
+      height:2px;
+      width:0;
+      bottom:1px;
+      position:absolute;
+      background-color:$primary_compliment;
+      @include transition(.2s);
+    }
+  }
+  .bar:before {
+    left:50%;
+  }
+  .bar:after {
+    right:50%;
+  }
+  input:focus ~ .bar:before, input:focus ~ .bar:after,  input:valid ~ .bar:before, input:valid ~ .bar:after {
+    width:50%;
+  }
+  label{
+    color:$grey_dark;
+    font-size: 18px;
+    // font-size: $lbl-input;
+    position: absolute;
+    pointer-events: none;
+    left: $gutter-half;
+    top:$gutter-half;
+    @include transition(.4s);
+  }
+}

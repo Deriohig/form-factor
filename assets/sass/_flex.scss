@@ -1,0 +1,36 @@
+
+.flexcontainer{
+  box-sizing:border-box;
+  	-webkit-box-sizing:border-box;
+  	-moz-box-sizing:border-box;
+  	-ms-box-sizing:border-box;
+
+  // display flex
+  display: -webkit-flex;
+  display:flex;
+
+  //display rows
+  -webkit-flex-direction: row;
+  flex-direction: row;
+
+  //center all content horizonatlly flex-start,flex-end, center, space-between, space-around
+  justify-content:flex-start;
+
+  // center content virtically
+  // align-items: center;
+
+  // align area between contents rows
+  //align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+  //align-content: space-between;
+  //wrap
+  flex-wrap: wrap;
+
+  div{
+    position: relative;
+    float: left;
+    background-color: $grey_dark;
+    flex-basis: calc(33.333% - #{$gutter});
+    margin: $gutter-half;
+    height:100px;
+  }
+}
